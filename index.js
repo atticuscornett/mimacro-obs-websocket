@@ -25,6 +25,32 @@ async function onEnable(pluginObj) {
     }, 10000);
 }
 
+function onGetActions() {
+    return [
+        {
+            "displayName": "Switch Scene",
+            "id": "switch-scene",
+            "ui": [
+                {
+                    "label": "Scene",
+                    "id": "scene",
+                    "type": "string"
+                }
+            ]
+        }
+    ]
+}
+
+async function onAction(actionID, settings) {
+    if (actionID === "switch-scene") {
+        if (connected) {
+            await obs.call('SetCurrentProgramScene', {sceneName: settings.scene});
+        }
+    }
+    console.log(actionID)
+    console.log(settings)
+}
+
 async function connectToOBS() {
     try{
         if (!connected) {
@@ -63,4 +89,4 @@ function onDisable(){
     clearInterval(connectInterval);
 }
 
-module.exports = {onEnable, onDisable, onSettingUpdate}
+module.exports = {onEnable, onDisable, onSettingUpdate, onGetActions, onAction};
