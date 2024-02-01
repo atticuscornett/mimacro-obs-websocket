@@ -9,5 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Atticus Cornett/mimacro Team",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "obs-websocket-js": "^5.0.4"
+  }
 }
