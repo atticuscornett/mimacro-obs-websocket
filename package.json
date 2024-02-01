@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "description": "mimacro plugin for controlling OBS",
   "main": "index.js",
+  "icon": "icon.png",
+  "displayName": "OBS Websocket",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
