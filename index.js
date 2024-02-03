@@ -28,6 +28,36 @@ async function onEnable(pluginObj) {
 function onGetActions() {
     return [
         {
+            "displayName": "Start Recording",
+            "id": "start-recording",
+            "ui": []
+        },
+        {
+            "displayName": "Stop Recording",
+            "id": "stop-recording",
+            "ui": []
+        },
+        {
+          "displayName": "Toggle Recording",
+            "id": "toggle-recording",
+            "ui": []
+        },
+        {
+            "displayName": "Start Streaming",
+            "id": "start-streaming",
+            "ui": []
+        },
+        {
+            "displayName": "Stop Streaming",
+            "id": "stop-streaming",
+            "ui": []
+        },
+        {
+            "displayName": "Toggle Streaming",
+            "id": "toggle-streaming",
+            "ui": []
+        },
+        {
             "displayName": "Switch Scene",
             "id": "switch-scene",
             "ui": [
@@ -42,10 +72,29 @@ function onGetActions() {
 }
 
 async function onAction(actionID, settings) {
+    if (!connected) {
+        return;
+    }
     if (actionID === "switch-scene") {
-        if (connected) {
-            await obs.call('SetCurrentProgramScene', {sceneName: settings.scene});
-        }
+        await obs.call('SetCurrentProgramScene', {sceneName: settings.scene});
+    }
+    if (actionID === "start-recording") {
+        await obs.call("StartRecord");
+    }
+    if (actionID === "stop-recording") {
+        await obs.call("StopRecord");
+    }
+    if (actionID === "toggle-recording") {
+        await obs.call("ToggleRecord");
+    }
+    if (actionID === "start-streaming") {
+        await obs.call("StartStream");
+    }
+    if (actionID === "stop-streaming") {
+        await obs.call("StopStream");
+    }
+    if (actionID === "toggle-streaming") {
+        await obs.call("ToggleStream");
     }
     console.log(actionID)
     console.log(settings)
