@@ -58,12 +58,45 @@ function onGetActions() {
             "ui": []
         },
         {
-            "displayName": "Switch Scene",
+            "displayName": "Set Current Scene",
             "id": "switch-scene",
             "ui": [
                 {
                     "label": "Scene",
                     "id": "scene",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "displayName": "Set Preview Scene",
+            "id": "switch-preview-scene",
+            "ui": [
+                {
+                    "label": "Scene",
+                    "id": "scene",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "displayName": "Set Scene Collection",
+            "id": "switch-scene-collection",
+            "ui": [
+                {
+                    "label": "Scene Collection",
+                    "id": "scene-collection",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "displayName": "Set Profile",
+            "id": "switch-profile",
+            "ui": [
+                {
+                    "label": "Profile",
+                    "id": "profile",
                     "type": "string"
                 }
             ]
@@ -74,9 +107,6 @@ function onGetActions() {
 async function onAction(actionID, settings) {
     if (!connected) {
         return;
-    }
-    if (actionID === "switch-scene") {
-        await obs.call('SetCurrentProgramScene', {sceneName: settings.scene});
     }
     if (actionID === "start-recording") {
         await obs.call("StartRecord");
@@ -95,6 +125,18 @@ async function onAction(actionID, settings) {
     }
     if (actionID === "toggle-streaming") {
         await obs.call("ToggleStream");
+    }
+    if (actionID === "switch-scene") {
+        await obs.call('SetCurrentProgramScene', {sceneName: settings["scene"]});
+    }
+    if (actionID === "switch-preview-scene") {
+        await obs.call('SetCurrentPreviewScene', {sceneName: settings["scene"]});
+    }
+    if (actionID === "switch-scene-collection") {
+        await obs.call("SetCurrentSceneCollection", {sceneCollectionName: settings["scene-collection"]});
+    }
+    if (actionID === "switch-profile") {
+        await obs.call("SetCurrentProfile", {profileName: settings["profile"]});
     }
     console.log(actionID)
     console.log(settings)
