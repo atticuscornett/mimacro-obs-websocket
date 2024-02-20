@@ -1,0 +1,197 @@
+[
+  {
+    "displayName": "Start Recording",
+    "id": "start-recording",
+    "ui": []
+  },
+  {
+    "displayName": "Stop Recording",
+    "id": "stop-recording",
+    "ui": []
+  },
+  {
+    "displayName": "Toggle Recording",
+    "id": "toggle-recording",
+    "ui": []
+  },
+  {
+    "displayName": "Start Streaming",
+    "id": "start-streaming",
+    "ui": []
+  },
+  {
+    "displayName": "Stop Streaming",
+    "id": "stop-streaming",
+    "ui": []
+  },
+  {
+    "displayName": "Toggle Streaming",
+    "id": "toggle-streaming",
+    "ui": []
+  },
+  {
+    "displayName": "Toggle Record Pause",
+    "id": "toggle-record-pause",
+    "ui": []
+  },
+  {
+    "displayName": "Pause Recording",
+    "id": "pause-recording",
+    "ui": []
+  },
+  {
+    "displayName": "Resume Recording",
+    "id": "resume-recording",
+    "ui": []
+  },
+  {
+    "displayName": "Set Current Scene",
+    "id": "switch-scene",
+    "ui": [
+      {
+        "label": "Scene",
+        "id": "scene",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "displayName": "Set Preview Scene",
+    "id": "switch-preview-scene",
+    "ui": [
+      {
+        "label": "Scene",
+        "id": "scene",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "displayName": "Set Scene Collection",
+    "id": "switch-scene-collection",
+    "ui": [
+      {
+        "label": "Scene Collection",
+        "id": "scene-collection",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "displayName": "Set Profile",
+    "id": "switch-profile",
+    "ui": [
+      {
+        "label": "Profile",
+        "id": "profile",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "displayName": "Mute Input",
+    "id": "mute-input",
+    "ui": [
+      {
+        "label": "Input",
+        "id": "input",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "displayName": "Unmute Input",
+    "id": "unmute-input",
+    "ui": [
+      {
+        "label": "Input",
+        "id": "input",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "displayName": "Toggle Input Mute",
+    "id": "toggle-input-mute",
+    "ui": [
+      {
+        "label": "Input",
+        "id": "input",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "displayName": "Set Input Volume",
+    "id": "set-input-volume",
+    "ui": [
+      {
+        "label": "Input",
+        "id": "input",
+        "type": "string"
+      },
+      {
+        "label": "Volume (db) ",
+        "id": "volume",
+        "type": "number"
+      }
+    ]
+  },
+  {
+    "displayName": "Set Current Scene Transition",
+    "id": "set-current-scene-transition",
+    "ui": [
+      {
+        "label": "Transition",
+        "id": "transition",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "displayName": "Set Current Scene Transition Duration",
+    "id": "set-current-scene-transition-duration",
+    "ui": [
+      {
+        "label": "Duration (ms)",
+        "id": "duration",
+        "type": "number"
+      }
+    ]
+  },
+  {
+    "displayName": "Toggle Virtual Cam",
+    "id": "toggle-virtual-cam",
+    "ui": []
+  },
+  {
+    "displayName": "Start Virtual Cam",
+    "id": "start-virtual-cam",
+    "ui": []
+  },
+  {
+    "displayName": "Stop Virtual Cam",
+    "id": "stop-virtual-cam",
+    "ui": []
+  },
+  {
+    "displayName": "Toggle Replay Buffer",
+    "id": "toggle-replay-buffer",
+    "ui": []
+  },
+  {
+    "displayName": "Start Replay Buffer",
+    "id": "start-replay-buffer",
+    "ui": []
+  },
+  {
+    "displayName": "Stop Replay Buffer",
+    "id": "stop-replay-buffer",
+    "ui": []
+  },
+  {
+    "displayName": "Save Replay Buffer",
+    "id": "save-replay-buffer",
+    "ui": []
+  }
+]
