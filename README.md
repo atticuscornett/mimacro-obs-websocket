@@ -13,7 +13,7 @@ It connects to OBS Studio using the [OBS Websocket](https://github.com/obsprojec
     - For most setups, the default settings should work.
     - Websocket IP should be `localhost` if OBS Studio is running on the same machine as mimacro.
     - Websocket port is typically `4455`.
-    - Websocket password is typically empty. (Note: Password is not encrypted by mimacro at this time. Assume other programs can read it. Exercise caution.)
+    - Websocket password is typically empty. (Note: Password is not encrypted by mimacro. Assume other programs can read it. Exercise caution.)
     - Websocket secure should be kept as `false` for most setups.
 5. Actions under the `OBS Websocket` category should now function in mimacro.
 
