@@ -25,6 +25,8 @@ async function onEnable(pluginObj) {
     }, 10000);
 }
 
+// List of OBS Websocket Actions
+// https://github.com/obsproject/obs-websocket/blob/master/docs/generated/protocol.md#requests
 function onGetActions() {
     return [
         {
@@ -100,6 +102,77 @@ function onGetActions() {
                     "type": "string"
                 }
             ]
+        },
+        {
+            "displayName": "Mute Input",
+            "id": "mute-input",
+            "ui": [
+                {
+                    "label": "Input",
+                    "id": "input",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "displayName": "Unmute Input",
+            "id": "unmute-input",
+            "ui": [
+                {
+                    "label": "Input",
+                    "id": "input",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "displayName": "Toggle Input Mute",
+            "id": "toggle-input-mute",
+            "ui": [
+                {
+                    "label": "Input",
+                    "id": "input",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "displayName": "Set Input Volume",
+            "id": "set-input-volume",
+            "ui": [
+                {
+                    "label": "Input",
+                    "id": "input",
+                    "type": "string"
+                },
+                {
+                    "label": "Volume (db) ",
+                    "id": "volume",
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "displayName": "Set Current Scene Transition",
+            "id": "set-current-scene-transition",
+            "ui": [
+                {
+                    "label": "Transition",
+                    "id": "transition",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "displayName": "Set Current Scene Transition Duration",
+            "id": "set-current-scene-transition-duration",
+            "ui": [
+                {
+                    "label": "Duration (ms)",
+                    "id": "duration",
+                    "type": "number"
+                }
+            ]
         }
     ]
 }
@@ -138,6 +211,25 @@ async function onAction(actionID, settings) {
     if (actionID === "switch-profile") {
         await obs.call("SetCurrentProfile", {profileName: settings["profile"]});
     }
+    if (actionID === "mute-input") {
+        await obs.call("SetInputMute", {inputName: settings["input"], inputMuted: true});
+    }
+    if (actionID === "unmute-input") {
+        await obs.call("SetInputMute", {inputName: settings["input"], inputMuted: false});
+    }
+    if (actionID === "toggle-input-mute") {
+        await obs.call("ToggleInputMute", {inputName: settings["input"]});
+    }
+    if (actionID === "set-input-volume") {
+        await obs.call("SetInputVolume", {inputName: settings["input"], inputVolumeDb: settings["volume"]})
+    }
+    if (actionID === "set-current-scene-transition") {
+        await obs.call("SetCurrentSceneTransition", {transitionName: settings["transition"]});
+    }
+    if (actionID === "set-current-scene-transition-duration") {
+        await obs.call("SetCurrentSceneTransitionDuration", {transitionDuration: settings["duration"]});
+    }
+
     console.log(actionID)
     console.log(settings)
 }
