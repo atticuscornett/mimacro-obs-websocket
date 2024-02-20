@@ -60,6 +60,21 @@ function onGetActions() {
             "ui": []
         },
         {
+            "displayName": "Toggle Record Pause",
+            "id": "toggle-record-pause",
+            "ui": []
+        },
+        {
+            "displayName": "Pause Recording",
+            "id": "pause-recording",
+            "ui": []
+        },
+        {
+            "displayName": "Resume Recording",
+            "id": "resume-recording",
+            "ui": []
+        },
+        {
             "displayName": "Set Current Scene",
             "id": "switch-scene",
             "ui": [
@@ -173,6 +188,41 @@ function onGetActions() {
                     "type": "number"
                 }
             ]
+        },
+        {
+            "displayName": "Toggle Virtual Cam",
+            "id": "toggle-virtual-cam",
+            "ui": []
+        },
+        {
+            "displayName": "Start Virtual Cam",
+            "id": "start-virtual-cam",
+            "ui": []
+        },
+        {
+            "displayName": "Stop Virtual Cam",
+            "id": "stop-virtual-cam",
+            "ui": []
+        },
+        {
+            "displayName": "Toggle Replay Buffer",
+            "id": "toggle-replay-buffer",
+            "ui": []
+        },
+        {
+            "displayName": "Start Replay Buffer",
+            "id": "start-replay-buffer",
+            "ui": []
+        },
+        {
+            "displayName": "Stop Replay Buffer",
+            "id": "stop-replay-buffer",
+            "ui": []
+        },
+        {
+            "displayName": "Save Replay Buffer",
+            "id": "save-replay-buffer",
+            "ui": []
         }
     ]
 }
@@ -228,6 +278,36 @@ async function onAction(actionID, settings) {
     }
     if (actionID === "set-current-scene-transition-duration") {
         await obs.call("SetCurrentSceneTransitionDuration", {transitionDuration: settings["duration"]});
+    }
+    if (actionID === "toggle-virtual-cam") {
+        await obs.call("ToggleVirtualCam");
+    }
+    if (actionID === "start-virtual-cam") {
+        await obs.call("StartVirtualCam");
+    }
+    if (actionID === "stop-virtual-cam") {
+        await obs.call("StopVirtualCam");
+    }
+    if (actionID === "toggle-replay-buffer") {
+        await obs.call("ToggleReplayBuffer");
+    }
+    if (actionID === "start-replay-buffer") {
+        await obs.call("StartReplayBuffer");
+    }
+    if (actionID === "stop-replay-buffer") {
+        await obs.call("StopReplayBuffer");
+    }
+    if (actionID === "save-replay-buffer") {
+        await obs.call("SaveReplayBuffer");
+    }
+    if (actionID === "toggle-record-pause") {
+        await obs.call("ToggleRecordPause");
+    }
+    if (actionID === "pause-recording") {
+        await obs.call("PauseRecord");
+    }
+    if (actionID === "resume-recording") {
+        await obs.call("ResumeRecord");
     }
 
     console.log(actionID)
